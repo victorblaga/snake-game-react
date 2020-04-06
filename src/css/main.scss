@@ -1,0 +1,36 @@
+$bgColor: #ededed;
+$borderColor: #cfcfcf;
+$gameOverBorderColor: #ffabab;
+$snakeColor: #55aec9;
+$foodColor: #408c3e;
+
+.grid {
+    display: inline-flex;
+    flex-direction: column;
+    background-color: $bgColor;
+    padding: 1px;
+    border: 3px solid $borderColor;
+}
+
+.grid.game-over {
+    border: 3px solid $gameOverBorderColor;
+}
+
+.row {
+    display: inline-flex;
+    flex-direction: row;
+}
+
+.cell {
+    width: 15px;
+    height: 15px;
+    background-color: $bgColor;
+}
+
+.cell.snake {
+    background-color: $snakeColor;
+}
+
+.cell.food {
+    background-color: $foodColor;
+}
