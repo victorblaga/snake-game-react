@@ -126,11 +126,15 @@ function Grid({ halfSize, tickDuration }) {
     };
 
     const moveSnake = function (direction) {
-        console.log(`Moving snake in direction: ${direction}`);
+        if (gameOver) {
+            return;
+        }
+        
         const head = snake[snake.length - 1];
         const newHead = calculateNewHead(head, direction);
         if (isGameOver(newHead, halfSize, snake)) {
             clearMovementTimer();
+            setDirection('none');
             setGameOver(true);
             return;
         }
@@ -209,8 +213,6 @@ function Grid({ halfSize, tickDuration }) {
     if (gameOver) {
         gridClasses.push('game-over');
     }
-
-
 
     return <div className="wrapper">
         <div className={gridClasses.join(" ")}>
